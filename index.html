@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victor Rodriguez | IT Resume</title>
+  <meta name="description" content="Victor Rodriguez - IT professional specializing in infrastructure, systems support, and full-stack application development." />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #121a2b;
+      --muted: #9fb0cc;
+      --text: #f4f7fb;
+      --accent: #60a5fa;
+      --accent-2: #22c55e;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #09101c 0%, #0b1220 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 18, 32, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 72px 0 42px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-card, .card {
+      background: rgba(18, 26, 43, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 36px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--accent-2);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    h1, h2, h3 { margin: 0 0 12px; }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 60ch;
+      font-size: 1.03rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #081120;
+      border-color: transparent;
+    }
+
+    .quick-card {
+      padding: 28px;
+      display: grid;
+      gap: 18px;
+      align-content: center;
+    }
+
+    .profile-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .profile-wrap img {
+      width: 132px;
+      height: 132px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.14);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .quick-item {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .quick-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+
+    .value {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .section {
+      padding: 18px 0 0;
+    }
+
+    .section-title {
+      font-size: 1.65rem;
+      margin-bottom: 18px;
+    }
+
+    .summary-card, .skills-card, .timeline, .project-card, .education-card, .contact-card {
+      padding: 26px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skill-group h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: #dce8fb;
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .job {
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .job-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .job-company {
+      color: var(--muted);
+    }
+
+    .job-date {
+      color: #dbeafe;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #e8eef8;
+    }
+
+    li + li { margin-top: 6px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      margin-top: 18px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .footer {
+      padding: 36px 0 48px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .two-col, .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-card, .summary-card, .skills-card, .timeline, .project-card, .education-card, .contact-card, .quick-card {
+        padding: 20px;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Victor Rodriguez</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <section class="hero-card">
+        <span class="eyebrow">IT Support • Infrastructure • Full-Stack Development</span>
+        <h1>Victor Rodriguez</h1>
+        <p>
+          Results-driven IT professional with hands-on experience in network infrastructure, systems support,
+          and full-stack application development within a high-volume manufacturing environment. Strong background
+          in troubleshooting, system monitoring, process automation, and cybersecurity fundamentals.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:Vr85609@gmail.com">Email Me</a>
+          <a class="btn" href="#projects">View Projects</a>
+          <button class="btn" id="downloadResumeBtn" type="button">Download PDF Resume</button>
+          <a class="btn" href="#contact">Contact Info</a>
+        </div>
+      </section>
+
+      <aside class="hero-card quick-card">
+        <div class="profile-wrap">
+          <img src="me.png" alt="Victor Rodriguez" />
+        </div>
+        <div class="quick-item">
+          <div class="label">Location</div>
+          <div class="value">Sugar Land, TX</div>
+        </div>
+        <div class="quick-item">
+          <div class="label">Phone</div>
+          <div class="value"><a href="tel:8327697323">832-769-7323</a></div>
+        </div>
+        <div class="quick-item">
+          <div class="label">Email</div>
+          <div class="value"><a href="mailto:Vr85609@gmail.com">Vr85609@gmail.com</a></div>
+        </div>
+        <div class="quick-item">
+          <div class="label">Education</div>
+          <div class="value">B.S. Information Technology – IT Management</div>
+        </div>
+        <div>
+          <div class="label">GPA</div>
+          <div class="value">3.95</div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section">
+      <div class="card summary-card">
+        <h2 class="section-title">About Me</h2>
+        <p>
+          I bring together hands-on plant-floor technical experience and modern software development skills.
+          My background includes industrial networking, SCADA monitoring, internal application support,
+          reporting automation, and building web-based tools that improve compliance and operations.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="card skills-card">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Networking & Infrastructure</h3>
+            <div class="chips">
+              <span class="chip">SNMP</span>
+              <span class="chip">OID Configuration</span>
+              <span class="chip">Stratix Switches</span>
+              <span class="chip">Mach102-24T</span>
+              <span class="chip">Network Troubleshooting</span>
+              <span class="chip">Performance Monitoring</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Systems & Monitoring</h3>
+            <div class="chips">
+              <span class="chip">Wonderware SCADA</span>
+              <span class="chip">System Monitoring</span>
+              <span class="chip">Preventative Maintenance</span>
+              <span class="chip">24/7 Infrastructure Support</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Cybersecurity</h3>
+            <div class="chips">
+              <span class="chip">Ethical Hacking Fundamentals</span>
+              <span class="chip">Vulnerability Assessment</span>
+              <span class="chip">Secure Data Handling</span>
+              <span class="chip">Risk Awareness</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Development & Data</h3>
+            <div class="chips">
+              <span class="chip">React.js</span>
+              <span class="chip">Node.js</span>
+              <span class="chip">Express.js</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">SQL</span>
+              <span class="chip">CRUD Operations</span>
+              <span class="chip">Excel Dashboards</span>
+              <span class="chip">Git & GitHub</span>
+              <span class="chip">Vercel</span>
+              <span class="chip">Render</span>
+              <span class="chip">Microsoft Forms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="card timeline">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Maintenance / IT Support Technician</div>
+              <div class="job-company">Frito-Lay — Rosenberg, TX</div>
+            </div>
+            <div class="job-date">June 2023 – Present</div>
+          </div>
+          <ul>
+            <li>Monitor and troubleshoot industrial network infrastructure using SNMP integrated with Wonderware SCADA systems.</li>
+            <li>Provide technical support and incident resolution for internal applications and end users.</li>
+            <li>Maintain uptime and reliability of critical production systems in a 24/7 environment.</li>
+            <li>Develop process automation tools using Microsoft Forms to improve training and data collection.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Quality Assurance Technician</div>
+              <div class="job-company">Frito-Lay — Rosenberg, TX</div>
+            </div>
+            <div class="job-date">August 2021 – Present</div>
+          </div>
+          <ul>
+            <li>Conduct quality control testing and data analysis in a high-volume manufacturing environment.</li>
+            <li>Built automated Excel dashboards and scorecards to improve reporting efficiency and visibility.</li>
+            <li>Lead operational reporting and compliance checks during shift-level meetings.</li>
+            <li>Support audits, packaging inspections, and process compliance activities.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <div>
+              <div class="job-title">Packaging Support Technician</div>
+              <div class="job-company">Frito-Lay — Rosenberg, TX</div>
+            </div>
+            <div class="job-date">January 2021 – August 2021</div>
+          </div>
+          <ul>
+            <li>Supported 4–10 production lines and reduced downtime through troubleshooting.</li>
+            <li>Coordinated production changeovers to maintain workflow continuity and efficiency.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <section id="projects" class="section">
+        <div class="card project-card">
+          <h2 class="section-title">Featured Project</h2>
+          <h3>PSM Audit Web Application</h3>
+          <p><strong>Technologies:</strong> React.js, Node.js, Express.js, PostgreSQL, REST API, GitHub, Vercel, Render</p>
+          <ul>
+            <li>Designed and deployed a full-stack web application to digitize manufacturing audit and compliance processes.</li>
+            <li>Developed RESTful APIs for audit submission, retrieval, reporting, and CSV export functionality.</li>
+            <li>Engineered a PostgreSQL database schema for structured audit data management.</li>
+            <li>Built a responsive React frontend with real-time validation and dynamic UI behavior.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="education" class="section">
+        <div class="card education-card">
+          <h2 class="section-title">Education</h2>
+          <h3>Purdue University Global</h3>
+          <p><strong>Bachelor of Science in Information Technology – IT Management</strong></p>
+          <p><strong>Expected Graduation:</strong> November 2026<br><strong>GPA:</strong> 3.95</p>
+          <p>
+            <strong>Relevant Coursework:</strong><br>
+            Network Security, Ethical Hacking I & II, Systems Analysis & Design, Project Management,
+            Advanced Database Concepts, Software Development, Human-Computer Interaction, Statistics.
+          </p>
+        </div>
+      </section>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="card contact-card">
+        <h2 class="section-title">Contact</h2>
+        <p>Interested in IT support, infrastructure, cybersecurity, or junior full-stack opportunities.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:Vr85609@gmail.com">Email Victor</a>
+          <a class="btn" href="tel:8327697323">Call 832-769-7323</a>
+          <a class="btn" href="https://github.com/vr85609-collab" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/victor-rodriguez-89a228128" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>© 2026 Victor Rodriguez. Built for sharing with employers.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var button = document.getElementById('downloadResumeBtn');
+      if (button) {
+        button.addEventListener('click', function () {
+          var link = document.createElement('a');
+          link.href = './Victor_Rodriguez_Resume.pdf';
+          link.download = 'Victor_Rodriguez_Resume.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+      }
+
+      var anchors = document.querySelectorAll('a[href^="#"]');
+      anchors.forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var targetSelector = this.getAttribute('href');
+          var target = document.querySelector(targetSelector);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
